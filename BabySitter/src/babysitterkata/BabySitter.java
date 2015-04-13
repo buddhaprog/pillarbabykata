@@ -147,19 +147,23 @@ public class BabySitter {
     }
 
     public boolean isValidStartTime(int userStartInput) {
+//        System.out.println("valid start time check");
         return !(userStartInput < this.earliestStartTime || userStartInput >= this.maxEndTime);
     }
 
     public boolean isValidBedTime(int userBedTimeInput) {
+//        System.out.println("valid bed time check");
         return !(userBedTimeInput < this.earliestStartTime || userBedTimeInput > this.maxEndTime);
     }
 
     public boolean isValidEndTime(int userEndInput) {
+//        System.out.println("valid end time check");
         return !(userEndInput <= this.earliestStartTime || userEndInput > this.maxEndTime);
     }
 
     public static void main(String[] args) {
         BabySitter baby = new BabySitter();
+        //tried doing it with 0 libraries per spec, could not figure out how to do it without atleast using scanner
         Scanner sc = new Scanner(System.in);
         boolean isValidEnd = false;
         boolean isValidStart = false;
@@ -183,7 +187,7 @@ public class BabySitter {
                 //System.out.println(baby.userStartInput);
             }
         }
-        System.out.println("Your Start time is " + baby.userStartInput);
+        System.out.println("Your Start time value is " + baby.userStartInput);
 
         while (!isValidBed) {
             System.out.println("Please Enter a bed Time between 5pm-4am");
@@ -198,7 +202,7 @@ public class BabySitter {
                 isValidBed = baby.isValidBedTime(baby.userBedTimeInput);
             }
         }
-        System.out.println("Your bed time is " + baby.userBedTimeInput);
+        System.out.println("Your bed time value is " + baby.userBedTimeInput);
 
         while (!isValidEnd) {
             System.out.println("Please Enter a end Time between 6pm-4am");
@@ -215,7 +219,7 @@ public class BabySitter {
                 isValidEnd = baby.isValidEndTime(baby.userEndInput);
             }
         }
-        System.out.println("Your End time is " + baby.userEndInput);
+        System.out.println("Your End time value is " + baby.userEndInput);
         int pay = baby.babySitterPayCalulator(baby.userStartInput, baby.userBedTimeInput, baby.userEndInput);
         System.out.println("Your Total Pay for the job is: " + pay);
     }
